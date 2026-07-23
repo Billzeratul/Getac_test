@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Grid 範例</title>
+  <style>
+    /* 基本重置 */
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #f7f7f7; }
+
+    .page {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    h1 { margin: 0 0 16px; }
+    p { margin: 0 0 24px; color: #555; }
+
+    /* 範例一：自動換行的等高網格 */
+    .grid-auto {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border: 1px solid #eee;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 16px; }
+    .card p { margin: 0; font-size: 14px; color: #666; }
+
+    /* 範例二：命名區域的網格版面 */
+    .grid-areas {
+      display: grid;
+      grid-template-columns: 200px 1fr 200px;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "header header header"
+        "sidebar main   aside"
+        "footer footer footer";
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .area { background: white; border: 1px solid #eee; border-radius: 8px; padding: 16px; }
+    .header { grid-area: header; }
+    .sidebar { grid-area: sidebar; }
+    .main { grid-area: main; }
+    .aside { grid-area: aside; }
+    .footer { grid-area: footer; }
+
+    /* 響應式調整（窄螢幕改為單欄） */
+    @media (max-width: 720px) {
+      .grid-areas {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "header"
+          "sidebar"
+          "main"
+          "aside"
+          "footer";
+      }
+    }
+  </style>
+  </head>
+  <body>
+    <div class="page">
+      <h1>CSS Grid 範例</h1>
+      <p>下方示範兩種常見用法：自動填滿的卡片網格，以及具命名區域的版面配置。</p>
+
+      <h2>範例一：自動填滿卡片網格</h2>
+      <div class="grid-auto">
+        <div class="card"><h3>卡片 1</h3><p>內容內容內容</p></div>
+        <div class="card"><h3>卡片 2</h3><p>內容內容內容</p></div>
+        <div class="card"><h3>卡片 3</h3><p>內容內容內容</p></div>
+        <div class="card"><h3>卡片 4</h3><p>內容內容內容</p></div>
+        <div class="card"><h3>卡片 5</h3><p>內容內容內容</p></div>
+        <div class="card"><h3>卡片 6</h3><p>內容內容內容</p></div>
+        <div class="card"><h3>卡片 7</h3><p>內容內容內容</p></div>
+        <div class="card"><h3>卡片 8</h3><p>內容內容內容</p></div>
+      </div>
+
+      <h2>範例二：命名區域版面</h2>
+      <div class="grid-areas">
+        <div class="area header">Header</div>
+        <div class="area sidebar">Sidebar</div>
+        <div class="area main">Main Content</div>
+        <div class="area aside">Aside</div>
+        <div class="area footer">Footer</div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
