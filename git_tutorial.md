@@ -142,6 +142,7 @@ git checkout -b new-feature
 切換分支
 git checkout main
 git checkout new-feature
+git checkout new-bill-1
 
 合併分支
 git merge new-feature
@@ -157,7 +158,7 @@ git push --set-upstream origin new-feature
 刪除遠端分支(new-feature)
 git push origin --delete new-feature
 
-查看分支
+# 查看分支
 git branch
 # =======private加密token
 ⚠️ 如果你是第一次用 GitHub Private repo，GitHub 可能會要求登入或 Token：
