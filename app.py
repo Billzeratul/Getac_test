@@ -1,1 +1,1 @@
-print("Hello Getac, Big Bro10")
+print("Hello Getac, Big Man")
